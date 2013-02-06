@@ -1,0 +1,3 @@
+kuba_user_registration_:
+    resource: "@KubaUserBundle/Resources/config/routing/registration.yml"
+    prefix:   /registration

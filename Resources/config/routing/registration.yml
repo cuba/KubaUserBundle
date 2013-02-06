@@ -1,0 +1,7 @@
+kuba_user_registration:
+    pattern:   /
+    defaults:  { _controller: KubaUserBundle:Registration:registration }
+    
+kuba_user_registration_success:
+    pattern:   /success
+    defaults:  { _controller: KubaUserBundle:Registration:success }

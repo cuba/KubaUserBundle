@@ -1,0 +1,7 @@
+parameters:
+#    kuba_user.example.class: Kuba\UserBundle\Example
+
+services:
+#    kuba_user.example:
+#        class: %kuba_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
