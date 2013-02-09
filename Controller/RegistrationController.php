@@ -42,6 +42,14 @@ class RegistrationController extends Controller
         $newUser->setUsername($data->username);
         $newUser->setEmail($data->email);
         
+        $sendValidation = true;
+        if($sendValidation){
+            $token = md5(uniqid(null, true));
+            $encodedToken = $encoder->encodePassword($token, $newUser->getSalt());
+            $newUser->setToken($encodedToken);
+            //TODO: Send Token
+        }
+        
         //TODO: Send Validation Email. For now, enable user
         $newUser->enable();
         

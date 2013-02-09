@@ -37,9 +37,14 @@ class User implements AdvancedUserInterface, \Serializable
     private $salt;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=100)
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true, unique=true)
+     */
+    private $token;
 
     /**
      * @ORM\Column(type="string", length=60, unique=true)
@@ -62,6 +67,10 @@ class User implements AdvancedUserInterface, \Serializable
         $this->generateSalt();
     }
     
+    public function getId(){
+        return $this->id;
+    }
+
     public function setUsername($username){
         $this->username = $username;
         $this->setUsernameCanonical(TextUtilities::canonicalize($username));
@@ -111,7 +120,14 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->password;
     }
     
+    public function setToken($token){
+        $this->token = $token;
+    }
     
+    public function getToken()
+    {
+        return $this->token;
+    }
     
     public function setEmail($email){
         $this->email = $email;
